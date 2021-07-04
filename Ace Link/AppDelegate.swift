@@ -5,19 +5,19 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    private var vlcLaunched = false;
+    private var iinaLaunched = false;
     private enum Constants {
         static let magnetStreamProtocol = "magnet"
         static let magnetStreamUrlBeginning = Constants.magnetStreamProtocol + ":?xt=urn:btih:"
         static let aceStreamProtocol = "acestream"
         static let aceStreamUrlBeginning = Constants.aceStreamProtocol + "://"
-        static let vlcBundleId = "org.videolan.vlc"
+        static let playerBundleId = "com.colliderli.iina"
         static let startDockerExitCodes = [
             100: "Cannot launch Docker",
             101: "Cannot connect to Docker",
             102: "Cannot connect to Acestream server",
             103: "Cannot open stream",
-            104: "Cannot launch VLC",
+            104: "Cannot launch IINA",
         ]
     }
 
@@ -107,7 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if exitCode == 0 {
             os_log("%{public}@ ran successfully", scriptName)
-            vlcLaunched = true;
+            iinaLaunched = true;
             return
         }
 
@@ -132,7 +132,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let task = Process.launchedProcess(launchPath: path, arguments: [])
         task.waitUntilExit()
         if task.terminationStatus == 0 {
-            vlcLaunched = false;
+            iinaLaunched = false;
             os_log("Stop stream done")
         }
     }
@@ -193,8 +193,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication else {
             return
         }
-        if app.bundleIdentifier == Constants.vlcBundleId && self.vlcLaunched {
-            os_log("VLC closed by user");
+        if app.bundleIdentifier == Constants.playerBundleId && self.iinaLaunched {
+            os_log("IINA closed by user");
             self.stopStream();
         }
     }

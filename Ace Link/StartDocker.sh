@@ -69,4 +69,4 @@ echo "#EXTM3U\n\
 $stream\n" > "$streamfile"
 
 echo "Opening stream $stream from $streamfile"
-open -a VLC "$streamfile" --args --no-video-title-show || exit 104
+open -a IINA "$streamfile" --args --no-video-title-show || exit 104

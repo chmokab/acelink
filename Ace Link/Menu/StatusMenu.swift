@@ -4,7 +4,7 @@ import Cocoa
 class StatusMenu: NSMenu {
     let updateMenu = UpdateMenu()
     let dockerMenu = InstallDockerMenu()
-    let vlcMenu = InstallVLCMenu()
+    let playerMenu = InstallPlayerMenu()
     let openStreamMenu = OpenStreamMenu()
 
     let dependenciesStatusItem = NSMenuItem(
@@ -39,7 +39,7 @@ class StatusMenu: NSMenu {
         self.addItem(dependenciesStatusItem)
 
         dockerMenu.addItems(self)
-        vlcMenu.addItems(self)
+        playerMenu.addItems(self)
         openStreamMenu.addItems(self)
         updateMenu.addItems(self)
 
@@ -52,7 +52,7 @@ class StatusMenu: NSMenu {
         let alert = NSAlert()
         alert.messageText = "How to open a stream using Ace Link?"
         alert.informativeText = """
-        The Open stream option is enabled when Docker and VLC are installed, and a supported format is detected in your clipboard. Supported formats are Acestream hashes, Acestream uris and Magnet uris.
+        The Open stream option is enabled when Docker and IINA are installed, and a supported format is detected in your clipboard. Supported formats are Acestream hashes, Acestream uris and Magnet uris.
 
         An Acestream hash is a 40-character code. Example: 049ea83561b6213dee5ae806cfdf52838a4c921e
 
@@ -74,12 +74,12 @@ class StatusMenu: NSMenu {
 
     override func update() {
         let isDockerInstalled = isinstalled("com.docker.docker")
-        let isVLCInstalled = isinstalled("org.videolan.vlc")
-        let isAllInstalled = isDockerInstalled && isVLCInstalled
+        let isPalyerInstalled = isinstalled("com.colliderli.iina")
+        let isAllInstalled = isDockerInstalled && isPalyerInstalled
 
         openStreamMenu.updateItems(dependenciesInstalled: isAllInstalled)
         dockerMenu.updateItems(dependenciesInstalled: isDockerInstalled)
-        vlcMenu.updateItems(dependenciesInstalled: isVLCInstalled)
+        playerMenu.updateItems(dependenciesInstalled: isPalyerInstalled)
 
         dependenciesStatusItem.isHidden = !isAllInstalled
     }

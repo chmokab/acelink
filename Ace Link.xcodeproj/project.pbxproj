@@ -10,7 +10,7 @@
 		4D0A4B35210BBCB100BF7929 /* StopDocker.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4D0A4B34210BBC6800BF7929 /* StopDocker.sh */; };
 		4D0CFED024278D0900264B83 /* UpdateMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFECF24278D0900264B83 /* UpdateMenu.swift */; };
 		4D0CFED224278D8400264B83 /* InstallDockerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFED124278D8400264B83 /* InstallDockerMenu.swift */; };
-		4D0CFED42427934000264B83 /* InstallVLCMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFED32427934000264B83 /* InstallVLCMenu.swift */; };
+		4D0CFED42427934000264B83 /* InstallPlayerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFED32427934000264B83 /* InstallPlayerMenu.swift */; };
 		4D0CFED62427947900264B83 /* OpenStreamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFED52427947900264B83 /* OpenStreamMenu.swift */; };
 		4D0CFED82427B04000264B83 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 4D0CFED72427B04000264B83 /* VERSION */; };
 		4D264644210CE84800B0570A /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D264643210CE84800B0570A /* StatusMenu.swift */; };
@@ -25,7 +25,7 @@
 		4D0A4B34210BBC6800BF7929 /* StopDocker.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = StopDocker.sh; sourceTree = "<group>"; };
 		4D0CFECF24278D0900264B83 /* UpdateMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMenu.swift; sourceTree = "<group>"; };
 		4D0CFED124278D8400264B83 /* InstallDockerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallDockerMenu.swift; sourceTree = "<group>"; };
-		4D0CFED32427934000264B83 /* InstallVLCMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallVLCMenu.swift; sourceTree = "<group>"; };
+		4D0CFED32427934000264B83 /* InstallPlayerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPlayerMenu.swift; sourceTree = "<group>"; };
 		4D0CFED52427947900264B83 /* OpenStreamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenStreamMenu.swift; sourceTree = "<group>"; };
 		4D0CFED72427B04000264B83 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = SOURCE_ROOT; };
 		4D264643210CE84800B0570A /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			children = (
 				4D264643210CE84800B0570A /* StatusMenu.swift */,
 				4D0CFED124278D8400264B83 /* InstallDockerMenu.swift */,
-				4D0CFED32427934000264B83 /* InstallVLCMenu.swift */,
+				4D0CFED32427934000264B83 /* InstallPlayerMenu.swift */,
 				4D0CFED52427947900264B83 /* OpenStreamMenu.swift */,
 				4D0CFECF24278D0900264B83 /* UpdateMenu.swift */,
 			);
@@ -122,7 +122,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = blaise.io;
 				TargetAttributes = {
 					4DB4E66A2108FA7200C2F1F2 = {
@@ -173,7 +173,7 @@
 				4D264644210CE84800B0570A /* StatusMenu.swift in Sources */,
 				4D0CFED224278D8400264B83 /* InstallDockerMenu.swift in Sources */,
 				4D0CFED024278D0900264B83 /* UpdateMenu.swift in Sources */,
-				4D0CFED42427934000264B83 /* InstallVLCMenu.swift in Sources */,
+				4D0CFED42427934000264B83 /* InstallPlayerMenu.swift in Sources */,
 				4D0CFED62427947900264B83 /* OpenStreamMenu.swift in Sources */,
 				4DB4E66F2108FA7200C2F1F2 /* AppDelegate.swift in Sources */,
 			);
@@ -219,6 +219,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -279,6 +280,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -311,6 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Ace Link/Ace_Link.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 7;
@@ -333,6 +336,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Ace Link/Ace_Link.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 7;

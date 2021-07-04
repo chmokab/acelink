@@ -3,17 +3,17 @@ import Cocoa
 import Foundation
 
 
-class InstallVLCMenu {
-    let downloadURL = "https://www.videolan.org/vlc/download-macosx.html"
+class InstallPlayerMenu {
+    let downloadURL = "https://dl-portal.iina.io/IINA.v1.1.2.dmg"
 
     let statusItem = NSMenuItem(
-        title: "VLC is not installed",
+        title: "IINA is not installed",
         action: nil,
         keyEquivalent: ""
     )
 
     let installItem = NSMenuItem(
-        title: "Download & install VLC manually…",
+        title: "Download & install IINA manually…",
         action: #selector(install(_:)),
         keyEquivalent: ""
     )
