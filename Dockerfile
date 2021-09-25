@@ -1,11 +1,11 @@
+# syntax=docker/dockerfile:experimental
 FROM debian:9-slim
 
-RUN apt-get update
-
-# Ignore private security packages.
-RUN sed -i 's/deb http:\/\/security.debian.org/#/g' /etc/apt/sources.list
-
-RUN apt-get install -yq --no-install-recommends \
+# Install system packages
+RUN set -ex && \
+    sed -i 's/deb http:\/\/security.debian.org/#/g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -yq --no-install-recommends \
         libpython2.7 \
         net-tools \
         python-minimal \
@@ -14,15 +14,17 @@ RUN apt-get install -yq --no-install-recommends \
         python-apsw \
         python-lxml \
         sqlite3 \
-        wget
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/*
+        wget && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /var/cache/*
 
 # Install Ace Stream
 # https://wiki.acestream.media/Download#Linux
-RUN mkdir -p /opt/acestream
-RUN wget -qO- "http://acestream.org/downloads/linux/acestream_3.1.49_debian_9.9_x86_64.tar.gz" | \
-        tar --extract --gzip -C /opt/acestream
+RUN mkdir -p /opt/acestream && \
+    wget --quiet --output-document acetream.tgz "http://acestream.org/downloads/linux/acestream_3.1.49_debian_9.9_x86_64.tar.gz" && \
+    echo "13cabf1882a730eb1558b63835512d14384688fc26b21651cfaa21e8e2ff7dda acetream.tgz" | sha256sum --check && \
+    tar --extract --gzip --directory /opt/acestream --file acetream.tgz && \
+    rm -rf acetream.tgz
 
 COPY acestream.conf /opt/acestream/acestream.conf
 
